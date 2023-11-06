@@ -1,0 +1,21 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:be="http://typo3.org/ns/TYPO3/CMS/Backend/ViewHelpers"
+    data-namespace-typo3-fluid="true">
+
+    <f:layout name="Backend/Default"/>
+
+    <f:section name="Content">
+        <h1>Éditer la catégorie: {category.title}</h1>
+        <f:form action="edit" arguments="{category: category}">
+            <label for="title">Titre</label><br>
+            <f:form.textfield id="title" name="title" value="{category.title}" required="true" /><br>
+            <label for="description">Description</label><br>
+            <f:form.textarea id="description" name="description" value="{category.description}" rows="5" cols="50" /><br>
+            <label for="parent">Catégorie parent</label><br>
+            <f:form.select id="title" name="parent" options="{categories}" value="{category.parent}" /><br>
+            <label for="pid">PID</label><br>
+            <f:form.textfield id="pid" name="pid" value="{category.pid}" required="true" additionalAttributes="{pattern: '[0-9]{1,4}'}" /><br>
+            <f:form.submit value="Éditer" />
+        </f:form>
+    </f:section>

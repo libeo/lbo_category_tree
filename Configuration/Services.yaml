@@ -1,0 +1,11 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Libeo\CategoryTree\:
+    resource: '../Classes/*'
+
+  Libeo\CategoryTree\Controller\CategoryController:
+    tags: ['backend.controller']
