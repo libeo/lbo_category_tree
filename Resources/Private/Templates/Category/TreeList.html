@@ -8,7 +8,7 @@
     <f:section name="Content">
         <div class="container-fluid">
             <div class="row">
-                <h1>Arbre des catégories</h1>
+                <h1>Categories</h1>
             </div>
             <div id="treeViewerScroll" class="row">
                 <div class="col">
@@ -102,7 +102,10 @@
 
     <f:section name="list">
         <li>
-            <span class="cat-caret"><span class="cat-icon"><core:icon identifier="mimetypes-x-sys_category"/></span> <f:link.action action="detail" arguments="{category: category.uid}">{category.title}</f:link.action></span>
+            <span class="cat-caret">
+                <span class="cat-icon"><core:icon identifier="mimetypes-x-sys_category"/></span>
+                <a href="{be:uri.editRecord(uid:category.uid, table:'sys_category')}">{category.title}</a>
+            </span>
             <f:if condition="{category.children -> f:count()}">
                 <ul class="cat-active">
                     <f:for each="{category.children}" as="subcategory">
@@ -111,7 +114,10 @@
                                 <f:render section="list" arguments="{category: subcategory}"></f:render>
                             </f:then>
                             <f:else>
-                                <li><span class="cat-icon"><core:icon identifier="mimetypes-x-sys_category"/></span> <f:link.action action="detail" arguments="{category: subcategory.uid}">{subcategory.title}</f:link.action></li>
+                                <li>
+                                    <span class="cat-icon"><core:icon identifier="mimetypes-x-sys_category"/></span>
+                                    <a href="{be:uri.editRecord(uid:subcategory.uid, table:'sys_category')}">{subcategory.title}</a>
+                                </li>
                             </f:else>
                         </f:if>
                     </f:for>
